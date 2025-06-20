@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>tsconfig.json 编译器配置文档 | zmn的博客</title>
+  <meta name="keywords" content=" typescript ">
+  <meta name="description" content="tsconfig.json 编译器配置文档 | zmn的博客">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="1.”target”:”es5”编译后的目标javascript版本，一般来说编译成es5，这样可以被主流浏览器解读。当然，如果目标对象不是浏览器，比如使用的是react-native给手机app解析的，可以选择es62.”lib”:[“dom”,”dom.iterable”,”esnext”]列出了编译期间需要被包括进来的库文件，通过这些库文件，告诉typescript编译器可以使用哪些功能3.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="tsconfig.json 编译器配置文档">
+<meta property="og:url" content="http://example.com/2025/06/20/tsconfig/index.html">
+<meta property="og:site_name" content="zmn的博客">
+<meta property="og:description" content="1.”target”:”es5”编译后的目标javascript版本，一般来说编译成es5，这样可以被主流浏览器解读。当然，如果目标对象不是浏览器，比如使用的是react-native给手机app解析的，可以选择es62.”lib”:[“dom”,”dom.iterable”,”esnext”]列出了编译期间需要被包括进来的库文件，通过这些库文件，告诉typescript编译器可以使用哪些功能3.">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-06-20T07:45:44.036Z">
+<meta property="article:modified_time" content="2025-06-20T08:17:30.405Z">
+<meta property="article:author" content="钟妙楠">
+<meta property="article:tag" content="typescript">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="icon" href="/img/circlePic.jpg">
+
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-light.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/js/titleTip.js?v=1.1.0" ></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.1.0" ></script>
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="">
+  <input class="theme_blog_path" value="">
+  <input id="theme_shortcut" value="true" />
+  <input id="theme_highlight_on" value="true" />
+  <input id="theme_code_copy" value="true" />
+</div>
+
+
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/"
+   class="avatar_target">
+    <img class="avatar"
+         src="/img/circlePic.jpg"/>
+</a>
+<div class="author">
+    <span>钟妙楠</span>
+</div>
+
+<div class="icon">
+    
+        
+            <a title="rss"
+               href="/atom.xml"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-rss"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="github"
+               href="https://github.com/yelog"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-github"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="facebook"
+               href="https://www.facebook.com/faker.tops"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-facebook"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+    
+        
+    
+        
+            <a title="instagram"
+               href="https://www.facebook.com/faker.tops"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-instagram"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="reddit"
+               href="https://www.reddit.com/user/yelog/"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-reddit"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="weibo"
+               href="http://weibo.com/u/2307534817"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-weibo"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="jianshu"
+               href="https://www.jianshu.com/u/ff56736de7cf"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-jianshu"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="zhihu"
+               href="https://www.zhihu.com/people/jaytp/activities"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-zhihu"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+    
+        
+            <a title="oschina"
+               href="https://my.oschina.net/yelog"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-oschina"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+    
+        
+            <a title="email"
+               href="mailto:jaytp@qq.com"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-email"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="qq"
+               href="http://wpa.qq.com/msgrd?v=3&uin=872336115&site=qq&menu=yes"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-qq"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="kugou"
+               href="https://www.kugou.com/"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-kugou"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="neteasemusic"
+               href="https://music.163.com/#/user/home?id=88151013"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-neteasemusic"></use>
+                    </svg>
+                
+            </a>
+        
+    
+</div>
+
+
+
+
+
+<ul>
+    <li>
+        <div class="all active" data-rel="全部文章">全部文章
+            
+                <small>(2)</small>
+            
+        </div>
+    </li>
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+        
+            
+            
+            
+    </div>
+    <div>
+        
+            <a class="about  hasFriend  site_url"
+               
+               href="/about">关于</a>
+        
+        <a style="width: 50%"
+                
+                                           class="friends">友链</a>
+        
+    </div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="2">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="搜索 快捷键 i"></i>
+            <div class="right-title">全部文章</div>
+            <i class="iconfont icon-file-tree" data-title="切换到大纲视图 快捷键 w"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="返回"></i>
+            <input id="local-search-input" autocomplete="off"/>
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="大小写敏感"></i>
+            <i class="iconfont icon-tag" data-title="标签"></i>
+        </div>
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">大纲</div>
+            <i class="iconfont icon-list" data-title="切换到文章列表"></i>
+        </div>
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>typescript</a>
+            </li>
+        
+    </div>
+
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        
+        <a  class="全部文章 "
+           href="/2025/06/20/tsconfig/"
+           data-tag="typescript"
+           data-author="" >
+            <span class="post-title" title="tsconfig.json 编译器配置文档">tsconfig.json 编译器配置文档</span>
+            <span class="post-date" title="2025-06-20 15:45:44">2025/06/20</span>
+        </a>
+        
+        
+        <a  class="全部文章 "
+           href="/2025/06/20/hello-world/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Hello World">Hello World</span>
+            <span class="post-date" title="2025-06-20 11:03:13">2025/06/20</span>
+        </a>
+        
+        <div id="no-item-tips">
+
+        </div>
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
+
+    </div>
+    <div class="hide-list">
+        <div class="semicircle" data-title="切换全屏 快捷键 s">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="post-tsconfig" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">tsconfig.json 编译器配置文档</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        
+        <span class="tag">
+            <i class="iconfont icon-tag"></i>
+            
+            <a class="color1">typescript</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+            发布时间 : <time class="date" title='最后更新: 2025-06-20 16:17:30'>2025-06-20 15:45</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E2%80%9Dtarget%E2%80%9D-%E2%80%9Des5%E2%80%9D"><span class="toc-text">1.”target”:”es5”</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%96%E8%AF%91%E5%90%8E%E7%9A%84%E7%9B%AE%E6%A0%87javascript%E7%89%88%E6%9C%AC%EF%BC%8C%E4%B8%80%E8%88%AC%E6%9D%A5%E8%AF%B4%E7%BC%96%E8%AF%91%E6%88%90es5%EF%BC%8C%E8%BF%99%E6%A0%B7%E5%8F%AF%E4%BB%A5%E8%A2%AB%E4%B8%BB%E6%B5%81%E6%B5%8F%E8%A7%88%E5%99%A8%E8%A7%A3%E8%AF%BB%E3%80%82%E5%BD%93%E7%84%B6%EF%BC%8C%E5%A6%82%E6%9E%9C%E7%9B%AE%E6%A0%87%E5%AF%B9%E8%B1%A1%E4%B8%8D%E6%98%AF%E6%B5%8F%E8%A7%88%E5%99%A8%EF%BC%8C%E6%AF%94%E5%A6%82%E4%BD%BF%E7%94%A8%E7%9A%84%E6%98%AFreact-native%E7%BB%99%E6%89%8B%E6%9C%BAapp%E8%A7%A3%E6%9E%90%E7%9A%84%EF%BC%8C%E5%8F%AF%E4%BB%A5%E9%80%89%E6%8B%A9es6"><span class="toc-text">编译后的目标javascript版本，一般来说编译成es5，这样可以被主流浏览器解读。当然，如果目标对象不是浏览器，比如使用的是react-native给手机app解析的，可以选择es6</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E2%80%9Dlib%E2%80%9D-%E2%80%9Cdom%E2%80%9D-%E2%80%9Ddom-iterable%E2%80%9D-%E2%80%9Desnext%E2%80%9D"><span class="toc-text">2.”lib”:[“dom”,”dom.iterable”,”esnext”]</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%97%E5%87%BA%E4%BA%86%E7%BC%96%E8%AF%91%E6%9C%9F%E9%97%B4%E9%9C%80%E8%A6%81%E8%A2%AB%E5%8C%85%E6%8B%AC%E8%BF%9B%E6%9D%A5%E7%9A%84%E5%BA%93%E6%96%87%E4%BB%B6%EF%BC%8C%E9%80%9A%E8%BF%87%E8%BF%99%E4%BA%9B%E5%BA%93%E6%96%87%E4%BB%B6%EF%BC%8C%E5%91%8A%E8%AF%89typescript%E7%BC%96%E8%AF%91%E5%99%A8%E5%8F%AF%E4%BB%A5%E4%BD%BF%E7%94%A8%E5%93%AA%E4%BA%9B%E5%8A%9F%E8%83%BD"><span class="toc-text">列出了编译期间需要被包括进来的库文件，通过这些库文件，告诉typescript编译器可以使用哪些功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E2%80%9DallowJs%E2%80%9D-true"><span class="toc-text">3.”allowJs”:true</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%81%E8%AE%B8%E6%B7%B7%E5%90%88%E7%BC%96%E8%AF%91javascript%E6%96%87%E4%BB%B6"><span class="toc-text">允许混合编译javascript文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E2%80%9DesModuleInterop%E2%80%9D-true"><span class="toc-text">4.”esModuleInterop”:true</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%81%E8%AE%B8%E6%88%91%E4%BB%AC%E4%BD%BF%E7%94%A8ES6%E7%9A%84%E6%96%B9%E5%BC%8Fimport%E9%BB%98%E8%AE%A4%E6%96%87%E4%BB%B6-false%EF%BC%9Aimport-as-React-from-%E2%80%98react%E2%80%99-true%EF%BC%9Aimport-React-from-%E2%80%98react%E2%80%99"><span class="toc-text">允许我们使用ES6的方式import默认文件* false：import * as React from ‘react’* true：import React from ‘react’</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E2%80%9Dmodule%E2%80%9D-%E2%80%9Cesnext%E2%80%9D"><span class="toc-text">5.”module”: “esnext”</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%99%E9%87%8C%E9%85%8D%E7%BD%AE%E7%9A%84%E6%98%AF%E6%88%91%E4%BB%AC%E4%BB%A3%E7%A0%81%E7%9A%84%E6%A8%A1%E5%9D%97%E7%B3%BB%E7%BB%9F%EF%BC%8C%E6%AF%94%E8%BE%83%E5%B8%B8%E8%A7%81%E7%9A%84%E6%9C%89Node-js%E7%9A%84CommonJS%E7%B3%BB%E7%BB%9F%EF%BC%8CES6%E6%A0%87%E5%87%86%E7%9A%84esnext%E7%B3%BB%E7%BB%9F%EF%BC%8C%E4%BB%A5%E5%8F%8Arequirejs%E7%9A%84AMD%E7%B3%BB%E7%BB%9F"><span class="toc-text">这里配置的是我们代码的模块系统，比较常见的有Node.js的CommonJS系统，ES6标准的esnext系统，以及requirejs的AMD系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E2%80%9DmoduleResolution%E2%80%9D%EF%BC%9A%E2%80%9Dnode%E2%80%9D"><span class="toc-text">6.”moduleResolution”：”node”</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%96%E8%AF%91%E5%99%A8%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%96%B9%E5%BC%8F"><span class="toc-text">编译器的工作方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E2%80%9DisolatedModules%E2%80%9D-%E2%80%9Dnode%E2%80%9D"><span class="toc-text">7.”isolatedModules”:”node”</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%80%E5%90%AF%E8%BF%99%E4%B8%AA%E9%80%89%E9%A1%B9%E4%BB%A5%E5%90%8E%EF%BC%8C%E7%BC%96%E8%AF%91%E5%99%A8%E4%BC%9A%E5%B0%86%E6%AF%8F%E4%B8%AA%E6%96%87%E4%BB%B6%E4%BD%9C%E4%B8%BA%E5%8D%95%E7%8B%AC%E7%9A%84%E6%A8%A1%E5%9D%97%E6%9D%A5%E4%BD%BF%E7%94%A8"><span class="toc-text">开启这个选项以后，编译器会将每个文件作为单独的模块来使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-%E2%80%9DnoEmit%E2%80%9D-true"><span class="toc-text">8.”noEmit”:true</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%80%E5%90%AF%E8%BF%99%E4%B8%AA%E9%80%89%E9%A1%B9%E8%A1%A8%E7%A4%BA%E5%BD%93%E5%8F%91%E7%94%9F%E9%94%99%E8%AF%AF%E7%9A%84%E6%97%B6%E5%80%99%EF%BC%8C%E7%BC%96%E8%AF%91%E5%99%A8%E4%B8%8D%E4%BC%9A%E7%94%9F%E6%88%90javascript%E4%BB%A3%E7%A0%81"><span class="toc-text">开启这个选项表示当发生错误的时候，编译器不会生成javascript代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-%E2%80%9Djsx%E2%80%9D-%E2%80%9Dreact%E2%80%9D"><span class="toc-text">9.”jsx”:”react”</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%96%E8%AF%91%E5%99%A8%E6%94%AF%E6%8C%81%E7%BC%96%E8%AF%91react%E4%BB%A3%E7%A0%81"><span class="toc-text">编译器支持编译react代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-%E2%80%9Dinclude%E2%80%9D-%E2%80%9Csrc-%E2%80%9D"><span class="toc-text">10.”include”:[“src&#x2F;**&#x2F;*”]</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%97%E5%87%BA%E9%9C%80%E8%A6%81%E7%BC%96%E8%AF%91%E7%9A%84%E6%96%87%E4%BB%B6%EF%BC%8C%E2%80%9C%E6%96%87%E4%BB%B6%E8%B7%AF%E5%BE%84%E2%80%9D%E9%80%89%E9%A1%B9%E9%9C%80%E8%A6%81%E6%96%87%E4%BB%B6%E7%9A%84%E7%9B%B8%E5%AF%B9%E6%88%96%E7%BB%9D%E5%AF%B9%E8%B7%AF%E5%BE%84%EF%BC%89-%E2%80%9C-%E2%80%9D-%E2%80%93-%E4%BB%BB%E6%84%8F%E5%AD%90%E7%9B%AE%E5%BD%95-%E2%80%9C%E2%80%9D%E2%80%93-%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E5%90%8D-%E2%80%9C%EF%BC%9F%E2%80%9D-%E5%8F%AA%E8%A6%81%E5%AD%97%E7%AC%A6%E8%B7%9F%E9%9A%8F%E4%BA%86%E2%80%9C%EF%BC%9F%E2%80%9D%EF%BC%8C%E8%A1%A8%E7%A4%BA%E8%BF%99%E4%B8%AA%E5%AD%97%E7%AC%A6%E4%BC%9A%E8%A2%AB%E8%A7%86%E4%B8%BA%E5%8F%AF%E5%BF%BD%E7%95%A5%E5%AD%97%E7%AC%A6"><span class="toc-text">列出需要编译的文件，“文件路径”选项需要文件的相对或绝对路径）* “*” – 任意子目录* “”–  任意文件名* “？”- 只要字符跟随了“？”，表示这个字符会被视为可忽略字符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-%E2%80%9Dfiles%E2%80%9D-%E2%80%9C-file1-ts%E2%80%9D"><span class="toc-text">11.”files”:[“.&#x2F;file1.ts”,..]</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%97%E5%87%BA%E7%BC%96%E8%AF%91%E5%99%A8%E5%BA%94%E5%A7%8B%E7%BB%88%E5%8C%85%E5%90%AB%E5%9C%A8%E7%BC%96%E8%AF%91%E4%B8%AD%E7%9A%84%E6%96%87%E4%BB%B6%E3%80%82%E6%97%A0%E8%AE%BA%E6%98%AF%E5%90%A6%E4%BD%BF%E7%94%A8exclude%E9%80%89%E9%A1%B9%EF%BC%8C%E9%83%BD%E5%B0%86%E4%BC%9A%E7%BC%96%E8%AF%91%E4%BD%BF%E7%94%A8%E6%AC%A1%E9%80%89%E9%A1%B9%E5%86%85%E5%8C%85%E5%90%AB%E7%9A%84%E6%89%80%E6%9C%89%E6%96%87%E4%BB%B6"><span class="toc-text">列出编译器应始终包含在编译中的文件。无论是否使用exclude选项，都将会编译使用次选项内包含的所有文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-%E2%80%9Dexclude%E2%80%9D-%E2%80%9Cnode-modules%E2%80%9D-%E2%80%9D-test-ts%E2%80%9D"><span class="toc-text">12.”exclude”:[“node_modules”,”**|&#x2F;.test.ts”]</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A4%E9%80%89%E9%A1%B9%E5%B0%86%E4%BC%9A%E5%88%97%E5%87%BA%E4%BB%8E%E7%BC%96%E8%AF%91%E4%B8%AD%E6%8E%92%E9%99%A4%E7%9A%84%E6%96%87%E4%BB%B6%E3%80%82exclude%E4%B8%8D%E4%BC%9A%E5%BD%B1%E5%93%8Dfiles%E9%80%89%E9%A1%B9"><span class="toc-text">此选项将会列出从编译中排除的文件。exclude不会影响files选项</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13-resolveJsonModule-true"><span class="toc-text">13.resolveJsonModule:true</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%93%E5%BC%80%E6%89%8D%E8%83%BD%E8%A7%A3%E6%9E%90json%E6%96%87%E4%BB%B6%EF%BC%88%E9%9C%80%E8%A6%81%E8%AE%BE%E7%BD%AE%E2%80%9DmoduleResolution%E2%80%9D%EF%BC%9A%E2%80%9Dnode%E2%80%9D"><span class="toc-text">打开才能解析json文件（需要设置”moduleResolution”：”node”</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#14-%E2%80%9Cdeclaration%E2%80%9D-true"><span class="toc-text">14.“declaration”:true</span></a></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-”target”-”es5”"><a href="#1-”target”-”es5”" class="headerlink" title="1.”target”:”es5”"></a>1.”target”:”es5”</h2><h2 id="编译后的目标javascript版本，一般来说编译成es5，这样可以被主流浏览器解读。当然，如果目标对象不是浏览器，比如使用的是react-native给手机app解析的，可以选择es6"><a href="#编译后的目标javascript版本，一般来说编译成es5，这样可以被主流浏览器解读。当然，如果目标对象不是浏览器，比如使用的是react-native给手机app解析的，可以选择es6" class="headerlink" title="编译后的目标javascript版本，一般来说编译成es5，这样可以被主流浏览器解读。当然，如果目标对象不是浏览器，比如使用的是react-native给手机app解析的，可以选择es6"></a>编译后的目标javascript版本，一般来说编译成es5，这样可以被主流浏览器解读。当然，如果目标对象不是浏览器，比如使用的是react-native给手机app解析的，可以选择es6</h2><h2 id="2-”lib”-“dom”-”dom-iterable”-”esnext”"><a href="#2-”lib”-“dom”-”dom-iterable”-”esnext”" class="headerlink" title="2.”lib”:[“dom”,”dom.iterable”,”esnext”]"></a>2.”lib”:[“dom”,”dom.iterable”,”esnext”]</h2><h2 id="列出了编译期间需要被包括进来的库文件，通过这些库文件，告诉typescript编译器可以使用哪些功能"><a href="#列出了编译期间需要被包括进来的库文件，通过这些库文件，告诉typescript编译器可以使用哪些功能" class="headerlink" title="列出了编译期间需要被包括进来的库文件，通过这些库文件，告诉typescript编译器可以使用哪些功能"></a>列出了编译期间需要被包括进来的库文件，通过这些库文件，告诉typescript编译器可以使用哪些功能</h2><h2 id="3-”allowJs”-true"><a href="#3-”allowJs”-true" class="headerlink" title="3.”allowJs”:true"></a>3.”allowJs”:true</h2><h2 id="允许混合编译javascript文件"><a href="#允许混合编译javascript文件" class="headerlink" title="允许混合编译javascript文件"></a>允许混合编译javascript文件</h2><h2 id="4-”esModuleInterop”-true"><a href="#4-”esModuleInterop”-true" class="headerlink" title="4.”esModuleInterop”:true"></a>4.”esModuleInterop”:true</h2><h2 id="允许我们使用ES6的方式import默认文件-false：import-as-React-from-‘react’-true：import-React-from-‘react’"><a href="#允许我们使用ES6的方式import默认文件-false：import-as-React-from-‘react’-true：import-React-from-‘react’" class="headerlink" title="允许我们使用ES6的方式import默认文件* false：import * as React from ‘react’* true：import React from ‘react’"></a>允许我们使用ES6的方式import默认文件<br>* false：import * as React from ‘react’<br>* true：import React from ‘react’</h2><h2 id="5-”module”-“esnext”"><a href="#5-”module”-“esnext”" class="headerlink" title="5.”module”: “esnext”"></a>5.”module”: “esnext”</h2><h2 id="这里配置的是我们代码的模块系统，比较常见的有Node-js的CommonJS系统，ES6标准的esnext系统，以及requirejs的AMD系统"><a href="#这里配置的是我们代码的模块系统，比较常见的有Node-js的CommonJS系统，ES6标准的esnext系统，以及requirejs的AMD系统" class="headerlink" title="这里配置的是我们代码的模块系统，比较常见的有Node.js的CommonJS系统，ES6标准的esnext系统，以及requirejs的AMD系统"></a>这里配置的是我们代码的模块系统，比较常见的有Node.js的CommonJS系统，ES6标准的esnext系统，以及requirejs的AMD系统</h2><h2 id="6-”moduleResolution”：”node”"><a href="#6-”moduleResolution”：”node”" class="headerlink" title="6.”moduleResolution”：”node”"></a>6.”moduleResolution”：”node”</h2><h2 id="编译器的工作方式"><a href="#编译器的工作方式" class="headerlink" title="编译器的工作方式"></a>编译器的工作方式</h2><h2 id="7-”isolatedModules”-”node”"><a href="#7-”isolatedModules”-”node”" class="headerlink" title="7.”isolatedModules”:”node”"></a>7.”isolatedModules”:”node”</h2><h2 id="开启这个选项以后，编译器会将每个文件作为单独的模块来使用"><a href="#开启这个选项以后，编译器会将每个文件作为单独的模块来使用" class="headerlink" title="开启这个选项以后，编译器会将每个文件作为单独的模块来使用"></a>开启这个选项以后，编译器会将每个文件作为单独的模块来使用</h2><h2 id="8-”noEmit”-true"><a href="#8-”noEmit”-true" class="headerlink" title="8.”noEmit”:true"></a>8.”noEmit”:true</h2><h2 id="开启这个选项表示当发生错误的时候，编译器不会生成javascript代码"><a href="#开启这个选项表示当发生错误的时候，编译器不会生成javascript代码" class="headerlink" title="开启这个选项表示当发生错误的时候，编译器不会生成javascript代码"></a>开启这个选项表示当发生错误的时候，编译器不会生成javascript代码</h2><h2 id="9-”jsx”-”react”"><a href="#9-”jsx”-”react”" class="headerlink" title="9.”jsx”:”react”"></a>9.”jsx”:”react”</h2><h2 id="编译器支持编译react代码"><a href="#编译器支持编译react代码" class="headerlink" title="编译器支持编译react代码"></a>编译器支持编译react代码</h2><h2 id="10-”include”-“src-”"><a href="#10-”include”-“src-”" class="headerlink" title="10.”include”:[“src&#x2F;**&#x2F;*”]"></a>10.”include”:[“src&#x2F;**&#x2F;*”]</h2><h2 id="列出需要编译的文件，“文件路径”选项需要文件的相对或绝对路径）-“-”-–-任意子目录-“”–-任意文件名-“？”-只要字符跟随了“？”，表示这个字符会被视为可忽略字符"><a href="#列出需要编译的文件，“文件路径”选项需要文件的相对或绝对路径）-“-”-–-任意子目录-“”–-任意文件名-“？”-只要字符跟随了“？”，表示这个字符会被视为可忽略字符" class="headerlink" title="列出需要编译的文件，“文件路径”选项需要文件的相对或绝对路径）* “*” – 任意子目录* “”–  任意文件名* “？”- 只要字符跟随了“？”，表示这个字符会被视为可忽略字符"></a>列出需要编译的文件，“文件路径”选项需要文件的相对或绝对路径）<br>* “*<em>” – 任意子目录<br>* “</em>”–  任意文件名<br>* “？”- 只要字符跟随了“？”，表示这个字符会被视为可忽略字符</h2><h2 id="11-”files”-“-file1-ts”"><a href="#11-”files”-“-file1-ts”" class="headerlink" title="11.”files”:[“.&#x2F;file1.ts”,..]"></a>11.”files”:[“.&#x2F;file1.ts”,..]</h2><h2 id="列出编译器应始终包含在编译中的文件。无论是否使用exclude选项，都将会编译使用次选项内包含的所有文件"><a href="#列出编译器应始终包含在编译中的文件。无论是否使用exclude选项，都将会编译使用次选项内包含的所有文件" class="headerlink" title="列出编译器应始终包含在编译中的文件。无论是否使用exclude选项，都将会编译使用次选项内包含的所有文件"></a>列出编译器应始终包含在编译中的文件。无论是否使用exclude选项，都将会编译使用次选项内包含的所有文件</h2><h2 id="12-”exclude”-“node-modules”-”-test-ts”"><a href="#12-”exclude”-“node-modules”-”-test-ts”" class="headerlink" title="12.”exclude”:[“node_modules”,”**|&#x2F;.test.ts”]"></a>12.”exclude”:[“node_modules”,”**|&#x2F;.test.ts”]</h2><h2 id="此选项将会列出从编译中排除的文件。exclude不会影响files选项"><a href="#此选项将会列出从编译中排除的文件。exclude不会影响files选项" class="headerlink" title="此选项将会列出从编译中排除的文件。exclude不会影响files选项"></a>此选项将会列出从编译中排除的文件。exclude不会影响files选项</h2><h2 id="13-resolveJsonModule-true"><a href="#13-resolveJsonModule-true" class="headerlink" title="13.resolveJsonModule:true"></a>13.resolveJsonModule:true</h2><h2 id="打开才能解析json文件（需要设置”moduleResolution”：”node”"><a href="#打开才能解析json文件（需要设置”moduleResolution”：”node”" class="headerlink" title="打开才能解析json文件（需要设置”moduleResolution”：”node”"></a>打开才能解析json文件（需要设置”moduleResolution”：”node”</h2><h2 id="14-“declaration”-true"><a href="#14-“declaration”-true" class="headerlink" title="14.“declaration”:true"></a>14.“declaration”:true</h2><p>每个js文件都能生成对应的.d.ts文件。能通过.d.ts文件得到属性的类型方法提示</p>
+<blockquote>
+<p>浅析当下的 Node.js CommonJS 模块系统 - Awee的文章 - 知乎<br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/38382637">https://zhuanlan.zhihu.com/p/38382637</a></p>
+</blockquote>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 jaytp@qq.com </span>
+    </div>
+</article>
+
+
+<p>
+    <a  class="dashang" onclick="dashangToggle()">赏</a>
+</p>
+
+
+
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">
+    ©2016-2020 Yelog
+</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+
+<div class="hide_box" onclick="dashangToggle()"></div>
+<div class="shang_box">
+    <a class="shang_close"  onclick="dashangToggle()">×</a>
+    <div class="shang_tit">
+        <p>喜欢就点赞,疼爱就打赏</p>
+    </div>
+    <div class="shang_payimg">
+        <div class="pay_img">
+            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
+        </div>
+    </div>
+    <div class="shang_payselect">
+        <span><label><input type="radio" name="pay" checked value="alipay">支付宝</label></span><span><label><input type="radio" name="pay" value="weixin">微信</label></span>
+    </div>
+</div>
+
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'default';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+        $("input[name=pay]").on("click", function () {
+            if($("input[name=pay]:checked").val()=="weixin"){
+                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
+            } else {
+                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
+            }
+        })
+        
+
+        /*高亮代码块行号*/
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+    function dashangToggle() {
+        $(".shang_box").fadeToggle();
+        $(".hide_box").fadeToggle();
+    }
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    #post {
+        background: url(/img/20.jpg);
+    }
+    
+    
+    #post .index {
+        background: url(/img/20.jpg);
+    }
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>
