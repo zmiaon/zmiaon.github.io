@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>tsconfig.json 编译器配置文档 | zmn的博客</title>
-  <meta name="keywords" content=" typescript ">
-  <meta name="description" content="tsconfig.json 编译器配置文档 | zmn的博客">
+  <title>JWT -- JSON WEB TOKEN | zmn的博客</title>
+  <meta name="keywords" content=" http ">
+  <meta name="description" content="JWT -- JSON WEB TOKEN | zmn的博客">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="1.”target”:”es5”编译后的目标javascript版本，一般来说编译成es5，这样可以被主流浏览器解读。当然，如果目标对象不是浏览器，比如使用的是react-native给手机app解析的，可以选择es6 2.”lib”:[“dom”,”dom.iterable”,”esnext”]列出了编译期间需要被包括进来的库文件，通过这些库文件，告诉typescript编译器可以使用哪些功能">
 <meta property="og:type" content="article">
@@ -384,9 +384,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-tsconfig" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-jwt" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">tsconfig.json 编译器配置文档</h1>
+        <h1 class="article-title">JWT -- JSON WEB TOKEN</h1>
     
     <div class="article-meta">
         
@@ -396,14 +396,14 @@
         <span class="tag">
             <i class="iconfont icon-tag"></i>
             
-            <a class="color1">typescript</a>
+            <a class="color5">http</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2025-06-20 17:52:37'>2025-06-20 15:45</time>
+            发布时间 : <time class="date" title='最后更新: 2025-06-20 17:56:31'>2020-02-13 13:42</time>
         
     </div>
     <div class="article-meta">
@@ -425,7 +425,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E2%80%9Dtarget%E2%80%9D-%E2%80%9Des5%E2%80%9D"><span class="toc-text">1.”target”:”es5”</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E2%80%9Dlib%E2%80%9D-%E2%80%9Cdom%E2%80%9D-%E2%80%9Ddom-iterable%E2%80%9D-%E2%80%9Desnext%E2%80%9D"><span class="toc-text">2.”lib”:[“dom”,”dom.iterable”,”esnext”]</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E2%80%9DallowJs%E2%80%9D-true"><span class="toc-text">3.”allowJs”:true</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E2%80%9DesModuleInterop%E2%80%9D-true"><span class="toc-text">4.”esModuleInterop”:true</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E2%80%9Dmodule%E2%80%9D-%E2%80%9Cesnext%E2%80%9D"><span class="toc-text">5.”module”: “esnext”</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E2%80%9DmoduleResolution%E2%80%9D%EF%BC%9A%E2%80%9Dnode%E2%80%9D"><span class="toc-text">6.”moduleResolution”：”node”</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E2%80%9DisolatedModules%E2%80%9D-%E2%80%9Dnode%E2%80%9D"><span class="toc-text">7.”isolatedModules”:”node”</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-%E2%80%9DnoEmit%E2%80%9D-true"><span class="toc-text">8.”noEmit”:true</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-%E2%80%9Djsx%E2%80%9D-%E2%80%9Dreact%E2%80%9D"><span class="toc-text">9.”jsx”:”react”</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-%E2%80%9Dinclude%E2%80%9D-%E2%80%9Csrc-%E2%80%9D"><span class="toc-text">10.”include”:[“src&#x2F;**&#x2F;*”]</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-%E2%80%9Dfiles%E2%80%9D-%E2%80%9C-file1-ts%E2%80%9D"><span class="toc-text">11.”files”:[“.&#x2F;file1.ts”,..]</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-%E2%80%9Dexclude%E2%80%9D-%E2%80%9Cnode-modules%E2%80%9D-%E2%80%9D-test-ts%E2%80%9D"><span class="toc-text">12.”exclude”:[“node_modules”,”**|&#x2F;.test.ts”]</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13-resolveJsonModule-true"><span class="toc-text">13.resolveJsonModule:true</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#14-%E2%80%9Cdeclaration%E2%80%9D-true"><span class="toc-text">14.“declaration”:true</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%9C%E7%94%A8%EF%BC%9A%E7%94%A8%E6%88%B7%E6%8E%88%E6%9D%83%EF%BC%88Authorization%EF%BC%89-%E8%80%8C%E4%B8%8D%E6%98%AF%E7%94%A8%E6%88%B7%E7%9A%84%E8%BA%AB%E4%BB%BD%E8%AE%A4%E8%AF%81%EF%BC%88Authentication%EF%BC%89"><span class="toc-text">作用：用户授权（Authorization）,而不是用户的身份认证（Authentication）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text"></span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A0%E5%AF%86%E5%90%8E%E7%9A%84JWT%E4%BF%A1%E6%81%AF%E4%BF%9D%E5%AD%98%E5%9C%A8%E5%89%8D%E7%AB%AF%EF%BC%8C%E4%B8%8D%E9%9C%80%E8%A6%81%E4%BF%9D%E5%AD%98%E5%88%B0%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%9B%E8%B0%83%E7%94%A8%E6%8E%A5%E5%8F%A3%E6%97%B6%E9%80%9A%E8%BF%87%E8%AF%B7%E6%B1%82%E5%A4%B4%E4%BC%A0%E9%80%92%E7%BB%99%E5%90%8E%E7%AB%AF%EF%BC%8C%E5%90%8E%E7%AB%AF%E8%A7%A3%E7%A0%81%E8%AF%86%E5%88%AB%EF%BC%88%E9%80%82%E5%90%88%E5%88%86%E5%B8%83%E5%BC%8F%E9%83%A8%E7%BD%B2%EF%BC%89"><span class="toc-text">加密后的JWT信息保存在前端，不需要保存到服务器；调用接口时通过请求头传递给后端，后端解码识别（适合分布式部署）</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -441,32 +441,17 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="1-”target”-”es5”"><a href="#1-”target”-”es5”" class="headerlink" title="1.”target”:”es5”"></a>1.”target”:”es5”</h2><p><u>编译后的目标javascript版本，一般来说编译成es5，这样可以被主流浏览器解读。当然，如果目标对象不是浏览器，比如使用的是react-native给手机app解析的，可以选择es6</u></p>
-<h2 id="2-”lib”-“dom”-”dom-iterable”-”esnext”"><a href="#2-”lib”-“dom”-”dom-iterable”-”esnext”" class="headerlink" title="2.”lib”:[“dom”,”dom.iterable”,”esnext”]"></a>2.”lib”:[“dom”,”dom.iterable”,”esnext”]</h2><p><u>列出了编译期间需要被包括进来的库文件，通过这些库文件，告诉typescript编译器可以使用哪些功能</u></p>
-<h2 id="3-”allowJs”-true"><a href="#3-”allowJs”-true" class="headerlink" title="3.”allowJs”:true"></a>3.”allowJs”:true</h2><p><u>允许混合编译javascript文件</u></p>
-<h2 id="4-”esModuleInterop”-true"><a href="#4-”esModuleInterop”-true" class="headerlink" title="4.”esModuleInterop”:true"></a>4.”esModuleInterop”:true</h2><p><u>允许我们使用ES6的方式import默认文件</p>
-<ul>
-<li>false：import * as React from ‘react’</li>
-<li>true：import React from ‘react’</u></li>
-</ul>
-<h2 id="5-”module”-“esnext”"><a href="#5-”module”-“esnext”" class="headerlink" title="5.”module”: “esnext”"></a>5.”module”: “esnext”</h2><p><u>这里配置的是我们代码的模块系统，比较常见的有Node.js的CommonJS系统，ES6标准的esnext系统，以及requirejs的AMD系统</u></p>
-<h2 id="6-”moduleResolution”：”node”"><a href="#6-”moduleResolution”：”node”" class="headerlink" title="6.”moduleResolution”：”node”"></a>6.”moduleResolution”：”node”</h2><p><u>编译器的工作方式  </u></p>
-<h2 id="7-”isolatedModules”-”node”"><a href="#7-”isolatedModules”-”node”" class="headerlink" title="7.”isolatedModules”:”node”"></a>7.”isolatedModules”:”node”</h2><p><u>开启这个选项以后，编译器会将每个文件作为单独的模块来使用<br></u></p>
-<h2 id="8-”noEmit”-true"><a href="#8-”noEmit”-true" class="headerlink" title="8.”noEmit”:true"></a>8.”noEmit”:true</h2><p><u>开启这个选项表示当发生错误的时候，编译器不会生成javascript代码</u></p>
-<h2 id="9-”jsx”-”react”"><a href="#9-”jsx”-”react”" class="headerlink" title="9.”jsx”:”react”"></a>9.”jsx”:”react”</h2><p><u>编译器支持编译react代码</u></p>
-<h2 id="10-”include”-“src-”"><a href="#10-”include”-“src-”" class="headerlink" title="10.”include”:[“src&#x2F;**&#x2F;*”]"></a>10.”include”:[“src&#x2F;**&#x2F;*”]</h2><p>列出需要编译的文件，“文件路径”选项需要文件的相对或绝对路径）</p>
-<ul>
-<li>“**” – 任意子目录</li>
-<li>“*”–  任意文件名</li>
-<li>“？”- 只要字符跟随了“？”，表示这个字符会被视为可忽略字符</li>
-</ul>
-<h2 id="11-”files”-“-file1-ts”"><a href="#11-”files”-“-file1-ts”" class="headerlink" title="11.”files”:[“.&#x2F;file1.ts”,..]"></a>11.”files”:[“.&#x2F;file1.ts”,..]</h2><p><u>列出编译器应始终包含在编译中的文件。无论是否使用exclude选项，都将会编译使用次选项内包含的所有文件</u></p>
-<h2 id="12-”exclude”-“node-modules”-”-test-ts”"><a href="#12-”exclude”-“node-modules”-”-test-ts”" class="headerlink" title="12.”exclude”:[“node_modules”,”**|&#x2F;.test.ts”]"></a>12.”exclude”:[“node_modules”,”**|&#x2F;.test.ts”]</h2><p><u>此选项将会列出从编译中排除的文件。exclude不会影响files选项</u></p>
-<h2 id="13-resolveJsonModule-true"><a href="#13-resolveJsonModule-true" class="headerlink" title="13.resolveJsonModule:true"></a>13.resolveJsonModule:true</h2><p><u>打开才能解析json文件（需要设置”moduleResolution”：”node”</u></p>
-<h2 id="14-“declaration”-true"><a href="#14-“declaration”-true" class="headerlink" title="14.“declaration”:true"></a>14.“declaration”:true</h2><p><u>每个js文件都能生成对应的.d.ts文件。能通过.d.ts文件得到属性的类型方法提示</u></p>
-<blockquote>
-<p>浅析当下的 Node.js CommonJS 模块系统 - Awee的文章 - 知乎<br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/38382637">https://zhuanlan.zhihu.com/p/38382637</a></p>
+        <h3 id="作用：用户授权（Authorization）-而不是用户的身份认证（Authentication）"><a href="#作用：用户授权（Authorization）-而不是用户的身份认证（Authentication）" class="headerlink" title="作用：用户授权（Authorization）,而不是用户的身份认证（Authentication）"></a>作用：用户授权（Authorization）,而不是用户的身份认证（Authentication）</h3><blockquote>
+<p>安装jwt解码插件<br>npm install jwt-decode</p>
 </blockquote>
+<h2 id=""><a href="#" class="headerlink" title=""></a><img src="/../images/JWT/1.png" alt="授权认证比较"></h2><p>传统的Session登录</p>
+<ul>
+<li>用户登录后，服务器会保存登录的session信息</li>
+<li>SessionID 会通过cookie传递给前端</li>
+<li>http请求会附带cookie</li>
+</ul>
+<p><img src="/../images/JWT/2.png" alt="有状态登录"></p>
+<h3 id="加密后的JWT信息保存在前端，不需要保存到服务器；调用接口时通过请求头传递给后端，后端解码识别（适合分布式部署）"><a href="#加密后的JWT信息保存在前端，不需要保存到服务器；调用接口时通过请求头传递给后端，后端解码识别（适合分布式部署）" class="headerlink" title="加密后的JWT信息保存在前端，不需要保存到服务器；调用接口时通过请求头传递给后端，后端解码识别（适合分布式部署）"></a>加密后的JWT信息保存在前端，不需要保存到服务器；调用接口时通过请求头传递给后端，后端解码识别（适合分布式部署）</h3><p><img src="/../images/JWT/3.png" alt="无状态登录"></p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 jaytp@qq.com </span>

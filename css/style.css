@@ -660,7 +660,7 @@
 .nav-right {
   width: 420px;
   height: 100%;
-  background: rgba(213,150,218,0.878);
+  background: rgba(255,217,188,0.678);
   border-right: 1px solid #e5e8ec;
   overflow: hidden;
   float: left;
@@ -679,9 +679,9 @@
   margin-left: 421px;
 }
 .nav-right .title-list .right-top {
-  background-color: #77417a;
+  background-color: #994d04;
   color: #fff;
-  background-image: radial-gradient(transparent 1px, #83439a 1px);
+  background-image: radial-gradient(transparent 1px, #c25706 1px);
   background-size: 4px 4px;
   backdrop-filter: saturate(50%) blur(4px);
   z-index: 10;
@@ -1235,8 +1235,8 @@
 }
 #post .pjax article .article-meta {
   font-size: 0.9em;
-  color: #bcc1c4;
-  border-left: 3px solid #b4b4b4;
+  color: #74381a;
+  border-left: 3px solid #74381a;
   padding-left: 10px;
 }
 #post .pjax article .article-meta > span {
